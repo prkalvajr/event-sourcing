@@ -276,6 +276,85 @@ body {
   font-size: 0.85rem;
 }
 
+/* --- Replay transport controls ------------------------------------------ */
+
+.replay {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.replay__buttons {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.rbtn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.rbtn:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.rbtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.rbtn--play.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(79, 156, 249, 0.14);
+}
+
+.replay__slider {
+  flex: 1;
+  min-width: 160px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.replay__status {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.replay__status strong {
+  color: var(--text);
+}
+
+.replay__live {
+  margin-left: 0.5rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--positive);
+  background: rgba(58, 210, 159, 0.13);
+  border: 1px solid rgba(58, 210, 159, 0.4);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+}
+
 .events {
   background: var(--surface);
   border: 1px solid var(--border);

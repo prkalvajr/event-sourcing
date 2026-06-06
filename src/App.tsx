@@ -3,6 +3,7 @@ import { useEvents } from './store/useEvents'
 import { deriveState } from './domain/reducer'
 import { BalanceCards } from './components/BalanceCards'
 import { Actions } from './components/Actions'
+import { ReplayControls } from './components/ReplayControls'
 import { EventsTable } from './components/EventsTable'
 
 export default function App() {
@@ -61,8 +62,9 @@ export default function App() {
         <section className="log">
           <h2 className="log__title">Event log</h2>
           <p className="log__hint">
-            Click any event to replay the ledger to that point.
+            Click any event — or use the controls — to replay the ledger.
           </p>
+          <ReplayControls total={total} count={count} onSeek={seek} />
           <EventsTable events={events} count={count} onSelect={seek} />
         </section>
       </main>
