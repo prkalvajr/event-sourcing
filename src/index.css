@@ -36,10 +36,25 @@ body {
   padding: 2rem 1.25rem 4rem;
 }
 
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .app-header h1 {
   margin: 0;
   font-size: 1.9rem;
   letter-spacing: -0.02em;
+}
+
+.btn--reset {
+  flex: none;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .subtitle {
@@ -447,4 +462,37 @@ body {
 .pill--MoneyTransferred {
   color: var(--accent);
   background: rgba(79, 156, 249, 0.13);
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.app-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.app-footer p {
+  margin: 0 0 0.5rem;
+  max-width: 60ch;
+  line-height: 1.5;
+}
+
+.app-footer code {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.8rem;
+}
+
+.app-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
 }

@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useEvents } from './store/useEvents'
+import { eventStore } from './store/eventStore'
 import { deriveState } from './domain/reducer'
 import { BalanceCards } from './components/BalanceCards'
 import { Actions } from './components/Actions'
@@ -28,14 +29,29 @@ export default function App() {
 
   const goLive = useCallback(() => setCursor(null), [])
 
+  const handleReset = () => {
+    const confirmed = window.confirm(
+      'Reset the ledger back to the seed? This deletes every event you added.',
+    )
+    if (confirmed) {
+      eventStore.reset()
+      setCursor(null)
+    }
+  }
+
   return (
     <div className="app">
       <header className="app-header">
-        <h1>💸 Event Sourcing Bank</h1>
-        <p className="subtitle">
-          An append-only ledger you can replay. You are logged in as{' '}
-          <strong>You</strong>.
-        </p>
+        <div>
+          <h1>💸 Event Sourcing Bank</h1>
+          <p className="subtitle">
+            An append-only ledger you can replay. You are logged in as{' '}
+            <strong>You</strong>.
+          </p>
+        </div>
+        <button className="btn btn--ghost btn--reset" onClick={handleReset}>
+          ↺ Reset to seed
+        </button>
       </header>
 
       <main className="app-main">
@@ -67,6 +83,22 @@ export default function App() {
           <ReplayControls total={total} count={count} onSeek={seek} />
           <EventsTable events={events} count={count} onSelect={seek} />
         </section>
+
+        <footer className="app-footer">
+          <p>
+            Every action is stored as an <strong>immutable event</strong> in
+            your browser. Balances are never saved — they are recomputed by
+            folding the log (<code>events.reduce</code>). Reset restores the
+            seed story.
+          </p>
+          <a
+            href="https://github.com/prkalvajr/event-sourcing"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Source on GitHub ↗
+          </a>
+        </footer>
       </main>
     </div>
   )

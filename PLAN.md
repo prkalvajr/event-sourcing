@@ -62,8 +62,8 @@ Each phase is a single, self-contained commit.
       the event reducer, seed data, and the `localStorage` event store.
 - [x] **Phase 3 — Live app UI.** Balance cards + Add / Withdraw / Transfer forms
       with full validation, wired to the store. *(End of autonomous half — review here.)*
-- [ ] **Phase 4 — Events table + click-to-replay.** Read-only time travel.
-- [ ] **Phase 5 — Play/step animation.** Forward/backward auto-step controls and
+- [x] **Phase 4 — Events table + click-to-replay.** Read-only time travel.
+- [x] **Phase 5 — Play/step animation.** Forward/backward auto-step controls and
       animated balance count-up.
-- [ ] **Phase 6 — Reset & polish.** Reset-to-seed button, final styling,
-      empty/edge states, deploy verification.
+- [x] **Phase 6 — Reset & polish.** Reset-to-seed button, final styling,
+      explainer footer, deploy verification.
